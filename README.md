@@ -1,6 +1,7 @@
 # Cultivare 🍄
-
 Cultivare is a free, open-source cultivation and breeding software designed for mushroom enthusiasts, hobbyists, and mycologists.  It helps you organize and manage your mushroom strains, track their lineage, and optimize your cultivation process.
+
+<a href="images/1.webp" target="_blank"><img src="images/1.webp" alt="drawing" width="1200"/></a>
 
 ### Key Features:
 - **Strain Management:** Catalog your collection of mushroom strains with detailed information.
@@ -20,6 +21,11 @@ Join the [Cultivare community](https://www.patreon.com/cultivare) and contribute
 ### Current status: Closed beta
 > Cultivare is currently under active development and buzzing with exciting new features! We're running a closed beta testing program within our community to gather feedback and refine the experience.  Want to be among the first to try it out? Join [our community](https://www.patreon.com/cultivare) and subscribe to this repository to stay updated on our progress.  Don't forget to give us a star ⭐ to show your support and be notified when the first stable version drops! We can't wait to share Cultivare with the world 🍄🍄🍄
 
+<a href="images/2.webp" target="_blank"><img src="images/2.webp" alt="drawing" width="600"/></a>
+<a href="images/3.webp" target="_blank"><img src="images/3.webp" alt="drawing" width="600"/></a>
+<a href="images/6.webp" target="_blank"><img src="images/6.webp" alt="drawing" width="300"/></a>
+<a href="images/4.webp" target="_blank"><img src="images/4.webp" alt="drawing" width="300"/></a>
+<a href="images/5.webp" target="_blank"><img src="images/5.webp" alt="drawing" width="300"/></a>
 ___
 
 ### In addition to the features currently available, Cultivare is also under development for several new features, including:
