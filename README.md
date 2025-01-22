@@ -18,6 +18,9 @@ Cultivare is a free, open-source cultivation and breeding software designed for 
 
 Join the [Cultivare community](https://www.patreon.com/cultivare) and contribute to the development of this powerful tool for mushroom cultivation.
 
+### Video
+<a href="https://www.youtube.com/watch?v=ZlhqQtduoS8" target="_blank"><img src="images/youtube.webp" alt="drawing" width="600"/></a>
+
 ### Current status: Closed beta
 > Cultivare is currently under active development and buzzing with exciting new features! We're running a closed beta testing program within our community to gather feedback and refine the experience.  Want to be among the first to try it out? Join [our community](https://www.patreon.com/cultivare) and subscribe to this repository to stay updated on our progress.  Don't forget to give us a star ⭐ to show your support and be notified when the first stable version drops! We can't wait to share Cultivare with the world 🍄🍄🍄
 
