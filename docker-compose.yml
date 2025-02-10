@@ -1,0 +1,80 @@
+services:
+  cultivare-traefik:
+    image: "traefik:v3.3"
+    container_name: "cultivare-traefik"
+    command:
+      - "--log.level=DEBUG"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80" 
+    ports:
+      - "8580:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - internal
+
+  cultivare-frontend:
+    hostname: cultivare-frontend
+    container_name: cultivare-frontend
+    image: ghcr.io/cultivare/cultivare-frontend:dev
+    restart: unless-stopped
+    # ports:
+    #   - "8080:80"
+    depends_on:
+      - cultivare-backend
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend.rule=PathPrefix(`/`)"
+      - "traefik.http.routers.frontend.entrypoints=web"
+      - "traefik.http.services.frontend.loadbalancer.server.port=80"
+    networks:
+      - internal
+
+  cultivare-backend:
+    hostname: cultivare-backend
+    container_name: cultivare-backend
+    image: ghcr.io/cultivare/cultivare-backend:dev
+    restart: unless-stopped
+    # ports:
+    #   - "8081:80"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.backend.rule=PathPrefix(`/api`)"
+      - "traefik.http.routers.backend.entrypoints=web"
+      - "traefik.http.services.backend.loadbalancer.server.port=80"
+    env_file:
+      - .env
+    environment:
+      - CULTIVARE_MONGODB_URL=mongodb://cultivare-mongodb:27017/
+      - CULTIVARE_DATABASE_NAME=cultivare
+      # - CULTIVARE_FRONTEND_URL=http://YOUR_IP_ADDRESS:PORT
+      # - CULTIVARE_PRINTER_BACKEND=network
+      # - CULTIVARE_PRINTER_MODEL=QL-810W
+      # - CULTIVARE_PRINTER_ADDRESS=tcp://192.168.0.120
+      # - CULTIVARE_PRINTER_LABEL_SIZE=12
+    volumes:
+      - uploads:/app/uploads # volume with user images
+    depends_on:
+      - cultivare-mongodb
+    networks:
+      - internal
+
+  cultivare-mongodb:
+    hostname: cultivare-mongodb
+    container_name: cultivare-mongodb
+    image: mongo:latest
+    # ports:
+    #   - "27017:27017"
+    volumes:
+      - database:/data/db
+    networks:
+      - internal
+
+volumes:
+  database:
+  uploads:
+
+networks:
+  internal:
+    external: false
